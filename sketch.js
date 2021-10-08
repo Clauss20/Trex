@@ -9,10 +9,7 @@ var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
 
 var score=0;
-
 var gameOver, restart;
-
-
 
 function preload(){
   trex_running =   loadAnimation("trex1.png","trex3.png","trex4.png");
@@ -37,7 +34,6 @@ function setup() {
   createCanvas(600, 200);
   
   trex = createSprite(50,180,20,50);
-  
   trex.addAnimation("running", trex_running);
   trex.addAnimation("collided", trex_collided);
   trex.scale = 0.5;
@@ -49,13 +45,13 @@ function setup() {
   
   gameOver = createSprite(300,100);
   gameOver.addImage(gameOverImg);
+  gameOver.scale = 0.5;
+  
   
   restart = createSprite(300,140);
   restart.addImage(restartImg);
-  
-  gameOver.scale = 0.5;
   restart.scale = 0.5;
-
+  
   gameOver.visible = false;
   restart.visible = false;
   
@@ -69,8 +65,8 @@ function setup() {
 }
 
 function draw() {
-  //trex.debug = true;
-  background(255);
+ 
+  background("blue");
   text("Puntuación: "+ score, 500,50);
   
   if (gameState===PLAY){
@@ -183,10 +179,7 @@ function reset(){
   obstaclesGroup.destroyEach();
   cloudsGroup.destroyEach();
   
-  trex.changeAnimation("running",trex_running);
-  
- 
-  
+  trex.changeAnimation("running",trex_running); 
   score = 0;
   
 }
